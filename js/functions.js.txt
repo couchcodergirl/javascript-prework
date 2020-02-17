@@ -7,3 +7,7 @@ function printMessage(msg){
 function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
+
+
+let playerMove = 'papier';
+printMessage('Zagralem ' + playerMove + '! Jesli Twój ruch to nozyce, to wygrywasz!');

@@ -59,3 +59,6 @@ if( computerMove == 'nożyce' && playerMove == 'nożyce'){
 if( computerMove == 'nożyce' && playerMove == 'kamień'){
   printMessage('Ty wygrywasz!');
 }
+if(playerMove == 'nieznany ruch'){
+    printMessage('Spróbuj jeszcze raz')
+}

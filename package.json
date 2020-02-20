@@ -1,35 +1,64 @@
-{
-  "name": "taskrunner",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
-  "scripts": {
-    "init-project": "npm install && npm-run-all init:*",
-    "init:dirs": "mkdirp sass css vendor images js",
-    "init:files": "touch README.md index.html sass/style.scss js/script.js",
-    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
-    "test": "npm run test:html",
-    "test:html": "html-validate *.html",
-    "build": "npm-run-all build:* test",
-    "build:sass": "node-sass --output-style compact -o css sass",
-    "build:autoprefixer": "autoprefixer-cli css/style.css",
-    "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
-    "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass",
-    "watch": "npm-run-all build:* build-dev -p watch:*",
-    "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\"",
-    "watch:sassprefixer": "onchange sass/*.scss -- npm run build-dev"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "autoprefixer-cli": "^1.0.0",
-    "browser-sync": "^2.26.3",
-    "mkdirp": "^0.5.1",
-    "node-sass": "^4.11.0",
-    "npm-run-all": "^4.1.5",
-    "html-validate": "^2.8.0",
-    "onchange": "^5.2.0"
+let randomNumber = Math.floor(Math.random() * 3 + 1);
+let computerMove = getMoveName(randomNumber);
+
+function getMoveName(argMoveId) {
+  if (argMoveId === 1) {
+    return 'kamień';
   }
+  if (argMoveId === 2) {
+    return 'papier';
+  }
+  if (argMoveId === 3) {
+    return 'nożyce';
+  }
+}
+
+printMessage('Mój ruch to: ' + computerMove);
+
+let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+
+console.log('Gracz wpisał: ' + playerInput);
+
+let playerMove = 'nieznany ruch';
+
+if(playerInput === '1'){
+  playerMove = 'kamień';
+}else if(playerInput === '2'){
+    playerMove = 'papier';
+}else if(playerInput === '3'){
+    playerMove = 'nożyce';
+}
+
+printMessage('Twój ruch to: ' + playerMove);
+
+
+if( computerMove === 'kamień' && playerMove === 'papier'){
+  printMessage('Ty wygrywasz!');
+}
+if( computerMove === 'kamień' && playerMove === 'nożyce'){
+  printMessage('Ty przegrywasz!');
+}
+if( computerMove === 'kamień' && playerMove === 'kamień'){
+  printMessage('Remis!');
+}
+if( computerMove === 'papier' && playerMove === 'papier'){
+  printMessage('Remis!');
+}
+if( computerMove === 'papier' && playerMove === 'nożyce'){
+  printMessage('Ty wygrywasz!');
+}
+if( computerMove === 'papier' && playerMove === 'kamień'){
+  printMessage('Ty przerywasz!');
+}
+if( computerMove === 'nożyce' && playerMove === 'papier'){
+  printMessage('Ty przegrywasz!');
+}
+if( computerMove === 'nożyce' && playerMove === 'nożyce'){
+  printMessage('Remis');
+}
+if( computerMove === 'nożyce' && playerMove === 'kamień'){
+  printMessage('Ty wygrywasz!');
+}
+if(playerMove === 'nieznany ruch'){
+    printMessage('Spróbuj jeszcze raz')
 }

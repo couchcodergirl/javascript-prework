@@ -21,9 +21,6 @@ function displayResult(computerMove, playerMove) {
     if (computerMove === 'kamień' && playerMove === 'papier') {
         printMessage('Ty wygrywasz!');
     }
-    if (computerMove === 'kamień' && playerMove === 'papier') {
-        printMessage('Ty wygrywasz!');
-    }
     if (computerMove === 'kamień' && playerMove === 'nożyce') {
         printMessage('Ty przegrywasz!');
     }
@@ -37,7 +34,7 @@ function displayResult(computerMove, playerMove) {
         printMessage('Ty wygrywasz!');
     }
     if (computerMove === 'papier' && playerMove === 'kamień') {
-        printMessage('Ty przerywasz!');
+        printMessage('Ty przegrywasz!');
     }
     if (computerMove === 'nożyce' && playerMove === 'papier') {
         printMessage('Ty przegrywasz!');
@@ -47,9 +44,6 @@ function displayResult(computerMove, playerMove) {
     }
     if (computerMove === 'nożyce' && playerMove === 'kamień') {
         printMessage('Ty wygrywasz!');
-    }
-    if (playerMove === 'nieznany ruch') {
-        printMessage('Spróbuj jeszcze raz')
     }
 }
 
